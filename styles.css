@@ -1,0 +1,197 @@
+/* ESTILOS PRINCIPAIS */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #FBFBFB;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filtro-checkbox {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.filtro-checkbox label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.filtro-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.acao a {
+    margin-right: 10px;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.acao a:hover {
+    text-decoration: underline;
+}
+
+/* CORES DE VALIDADE - ESSENCIAIS */
+tr.validade-30 {
+    background-color: #ccffcc !important; /* Verde claro */
+}
+
+tr.validade-7 {
+    background-color: #ffffcc !important; /* Amarelo claro */
+}
+
+tr.validade-0 {
+    background-color: #ffcccc !important; /* Vermelho claro */
+}
+
+tr.fora-prazo {
+    background-color: #e6ccff !important; /* Roxo claro */
+}
+
+/* PAINEL FRONTAL */
+
+/*body {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}*/
+
+.main-container {
+    display: flex;
+    gap: 40px;
+    max-width: 900px;
+    width: 100%;
+}
+.form-container {
+    flex: 1;
+    min-width: 300px;
+}
+.right-panel {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.info-panel {
+    background: white;
+    padding: 15px 15px 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.info-panel h3 {
+    color: #d9534f;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.info-item {
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 5px;
+}
+.info-count {
+    font-weight: bold;
+}
+/* Cores */
+.vencidos {
+    background-color: #e6ccff !important;
+}
+.desconto-50 {
+    background-color: #ffcccc !important;
+}
+.desconto-20 {
+    background-color: #ffffcc !important;
+}
+.validade-longa {
+    background-color: #ccffcc !important;
+}
+.imagem-produto {
+    width: 233px;
+    height: 156px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+label {
+    font-weight: bold;
+}
+input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #45a049;
+}
+.link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+h2 {
+    margin-top: 0;
+    color: #333;
+}
