@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  
+</head>
+
+
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -55,6 +68,7 @@ function formatarData($dataMySQL) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -100,7 +114,19 @@ function formatarData($dataMySQL) {
         }
     </style>
 </head>
+
 <body>
+
+    <div class="container">
+    <div class="row" style="margin-bottom: 1.6em;">
+        <header class="col-sm-7">
+            <a href="index.php"><img src="logo.png" alt="logo" style="width: 150px;"></a> 
+        </header>
+        <ul class="col-sm-5 list-unstyled d-flex justify-content-between align-items-center">
+            <a href="index.php"><li class="list-inline-item btn btn-outline-dark p-3">Cadastrar produto</li></a>
+            <a href="listar.php"><li class="list-inline-item btn btn-outline-dark p-3">Produtos cadastrados</li></a>
+        </ul>
+    </div>
     <h2>Produtos Cadastrados</h2>
     
     <!-- Filtro de exibição com checkboxes -->
@@ -133,103 +159,103 @@ function formatarData($dataMySQL) {
         </form>
     </div>
     
-    <table>
-        <tr>
-            <th><a href="listar.php?<?php 
-                echo "order_by=id&order=" . ($order_by == 'id' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
-                foreach ($_GET as $key => $value) {
-                    if ($key != 'order_by' && $key != 'order') {
+        <table>
+            <tr>
+                <th><a href="listar.php?<?php 
+                    echo "order_by=id&order=" . ($order_by == 'id' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
+                    foreach ($_GET as $key => $value) {
+                        if ($key != 'order_by' && $key != 'order') {
                         echo "&$key=" . htmlspecialchars($value);
+                        }
                     }
-                }
-            ?>">ID <?php if ($order_by == 'id') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
+                ?>">ID <?php if ($order_by == 'id') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
             
-            <th><a href="listar.php?<?php 
-                echo "order_by=nome&order=" . ($order_by == 'nome' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
-                foreach ($_GET as $key => $value) {
-                    if ($key != 'order_by' && $key != 'order') {
+                <th><a href="listar.php?<?php 
+                    echo "order_by=nome&order=" . ($order_by == 'nome' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
+                    foreach ($_GET as $key => $value) {
+                        if ($key != 'order_by' && $key != 'order') {
                         echo "&$key=" . htmlspecialchars($value);
+                        }
                     }
-                }
-            ?>">Nome <?php if ($order_by == 'nome') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
+                    ?>">Nome <?php if ($order_by == 'nome') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
             
-            <th><a href="listar.php?<?php 
-                echo "order_by=quantidade&order=" . ($order_by == 'quantidade' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
-                foreach ($_GET as $key => $value) {
-                    if ($key != 'order_by' && $key != 'order') {
+                <th><a href="listar.php?<?php 
+                    echo "order_by=quantidade&order=" . ($order_by == 'quantidade' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
+                    foreach ($_GET as $key => $value) {
+                        if ($key != 'order_by' && $key != 'order') {
                         echo "&$key=" . htmlspecialchars($value);
+                        }
                     }
-                }
-            ?>">Quantidade <?php if ($order_by == 'quantidade') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
+                    ?>">Quantidade <?php if ($order_by == 'quantidade') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
             
-            <th><a href="listar.php?<?php 
-                echo "order_by=preco&order=" . ($order_by == 'preco' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
-                foreach ($_GET as $key => $value) {
-                    if ($key != 'order_by' && $key != 'order') {
-                        echo "&$key=" . htmlspecialchars($value);
+                <th><a href="listar.php?<?php 
+                    echo "order_by=preco&order=" . ($order_by == 'preco' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
+                    foreach ($_GET as $key => $value) {
+                        if ($key != 'order_by' && $key != 'order') {
+                            echo "&$key=" . htmlspecialchars($value);
+                        }
                     }
-                }
-            ?>">Preço Original <?php if ($order_by == 'preco') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
+                    ?>">Preço Original <?php if ($order_by == 'preco') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
             
-            <th>Preço Final</th>
+                <th>Preço Final</th>
             
-            <th><a href="listar.php?<?php 
-                echo "order_by=data_fabricacao&order=" . ($order_by == 'data_fabricacao' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
-                foreach ($_GET as $key => $value) {
-                    if ($key != 'order_by' && $key != 'order') {
-                        echo "&$key=" . htmlspecialchars($value);
+                <th><a href="listar.php?<?php 
+                    echo "order_by=data_fabricacao&order=" . ($order_by == 'data_fabricacao' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
+                    foreach ($_GET as $key => $value) {
+                        if ($key != 'order_by' && $key != 'order') {
+                            echo "&$key=" . htmlspecialchars($value);
+                        }
                     }
-                }
-            ?>">Data de Fabricação <?php if ($order_by == 'data_fabricacao') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
+                    ?>">Data de Fabricação <?php if ($order_by == 'data_fabricacao') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
             
-            <th><a href="listar.php?<?php 
-                echo "order_by=data_validade&order=" . ($order_by == 'data_validade' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
-                foreach ($_GET as $key => $value) {
-                    if ($key != 'order_by' && $key != 'order') {
-                        echo "&$key=" . htmlspecialchars($value);
+                <th><a href="listar.php?<?php 
+                    echo "order_by=data_validade&order=" . ($order_by == 'data_validade' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
+                    foreach ($_GET as $key => $value) {
+                        if ($key != 'order_by' && $key != 'order') {
+                            echo "&$key=" . htmlspecialchars($value);
+                        }
                     }
-                }
-            ?>">Data de Validade <?php if ($order_by == 'data_validade') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
+                    ?>">Data de Validade <?php if ($order_by == 'data_validade') echo ($order == 'asc' ? '↑' : '↓'); ?></a></th>
             
-            <th>Ações</th>
-        </tr>
+                <th>Ações</th>
+            </tr>
 
-        <?php
-        while ($row = $result->fetch_assoc()) {
-            $preco_original = $row["preco"];
-            $preco_final = $preco_original;
-            $hoje = new DateTime();
-            $validade = new DateTime($row["data_validade"]);
-            $dias_para_validade = $validade->diff($hoje)->days;
-            $fora_prazo = $validade < $hoje;
+            <?php
+                while ($row = $result->fetch_assoc()) {
+                    $preco_original = $row["preco"];
+                    $preco_final = $preco_original;
+                    $hoje = new DateTime();
+                    $validade = new DateTime($row["data_validade"]);
+                    $dias_para_validade = $validade->diff($hoje)->days;
+                    $fora_prazo = $validade < $hoje;
 
-            // Define a classe e status conforme os dias para validade
-            $classe = '';
-            $status_validade = '';
+                    // Define a classe e status conforme os dias para validade
+                    $classe = '';
+                    $status_validade = '';
 
-            if ($fora_prazo) {
-                $classe = 'fora-prazo';
-                $status_validade = 'fora_prazo';
-                $preco_final = 0.00; // Preço zero para produtos vencidos
-            } elseif ($dias_para_validade <= 7) {
-                $classe = 'validade-0';
-                $status_validade = 'validade_0';
-                $preco_final = $preco_original * 0.5; // 50% de desconto
-            } elseif ($dias_para_validade <= 30) {
-                $classe = 'validade-7';
-                $status_validade = 'validade_7';
-                $preco_final = $preco_original * 0.8; // 20% de desconto
-            } else {
-                $classe = 'validade-30';
-                $status_validade = 'validade_30';
-                $preco_final = $preco_original;
-            }
+                if ($fora_prazo) {
+                    $classe = 'fora-prazo';
+                    $status_validade = 'fora_prazo';
+                    $preco_final = 0.00; // Preço zero para produtos vencidos
+                } elseif ($dias_para_validade <= 7) {
+                    $classe = 'validade-0';
+                    $status_validade = 'validade_0';
+                    $preco_final = $preco_original * 0.5; // 50% de desconto
+                } elseif ($dias_para_validade <= 30) {
+                    $classe = 'validade-7';
+                    $status_validade = 'validade_7';
+                    $preco_final = $preco_original * 0.8; // 20% de desconto
+                } else {
+                    $classe = 'validade-30';
+                    $status_validade = 'validade_30';
+                    $preco_final = $preco_original;
+                }
 
-            // Verifica se deve exibir o produto com base nos filtros selecionados
-            $exibir = $filtros[$status_validade];
+                // Verifica se deve exibir o produto com base nos filtros selecionados
+                $exibir = $filtros[$status_validade];
 
-            if ($exibir) {
-                echo "<tr class='{$classe}'>
+                if ($exibir) {
+                    echo "<tr class='{$classe}'>
                         <td>{$row['id']}</td>
                         <td>" . htmlspecialchars($row['nome']) . "</td>
                         <td>{$row['quantidade']}</td>
@@ -242,15 +268,19 @@ function formatarData($dataMySQL) {
                             <a href='remover_quantidade.php?id={$row["id"]}'>Remover Quantidade</a>
                         </td>
                       </tr>";
-            }
-        }
-        ?>
-    </table>
-    <br>
-    <a href="index.php">Cadastrar novo produto</a>
+                    }
+                }
+                ?>
+        </table>
+        <br>
+        <a href="index.php">Cadastrar novo produto</a>
+    </div>
 </body>
 </html>
 
-<?php
-$conn->close();
-?>
+        <?php
+            $conn->close();
+        ?>
+
+    
+    

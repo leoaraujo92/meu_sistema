@@ -13,9 +13,13 @@
 
 <div class="container">
     <div class="row" style="margin-bottom: 1.6em;">
-        <header class="col-sm-6">
-            <img src="logo.png" alt="logo" style="width: 150px;">
+        <header class="col-sm-7">
+            <a href="index.php"><img src="logo.png" alt="logo" style="width: 150px;"></a> 
         </header>
+        <ul class="col-sm-5 list-unstyled d-flex justify-content-between align-items-center">
+            <a href="index.php"><li class="list-inline-item btn btn-outline-dark p-3">Cadastrar produto</li></a>
+            <a href="listar.php"><li class="list-inline-item btn btn-outline-dark p-3">Produtos cadastrados</li></a>
+        </ul>
     </div>
 </div>
 
@@ -23,7 +27,7 @@
 
     <div class="row">  
         
-        <div class="col-md-6">
+        <div class="col-md-7">
 
             <h2>Cadastro de Produto</h2>
             
@@ -43,9 +47,8 @@
                 <label>Data de Validade:</label>
                 <input type="date" name="data_validade" required>
 
-                    <div class="link-container">
-                        <a href="listar.php" >Ver produtos cadastrados</a>
-                        <button id="form" type="submit">Salvar</button>
+                    <div class="d-flex justify-content-end ">
+                        <button id="form" class="btn btn-success" type="submit">Salvar</button>
                     </div>
                     
             </form>
@@ -53,7 +56,7 @@
         </div>
 
 
-        <div class="col-md-6">
+        <div class="col-md-5">
         <h3>ATENÇÃO</h3>
         <?php
         $servername = "localhost";
@@ -139,15 +142,9 @@
                 
     </div>   
             
-
-
     </div>
 
         
-        
-
-        
-    
 </div>
 
     <script>

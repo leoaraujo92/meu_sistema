@@ -1,3 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  
+</head>
+
+<div class="container">
+    <div class="row" style="margin-bottom: 1.6em;">
+        <header class="col-sm-7">
+            <a href="index.php"><img src="logo.png" alt="logo" style="width: 150px;"></a> 
+        </header>
+        <ul class="col-sm-5 list-unstyled d-flex justify-content-between align-items-center">
+            <a href="index.php"><li class="list-inline-item btn btn-outline-dark">Cadastrar produto</li></a>
+            <a href="listar.php"><li class="list-inline-item btn btn-outline-dark">Produtos cadastrados</li></a>
+        </ul>
+    </div>
+
+</div>
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -38,8 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $novo_preco = $_POST['preco'];
         $sql = "UPDATE produtos SET nome = '$novo_nome', preco = '$novo_preco' WHERE id = $id";
         if ($conn->query($sql) === TRUE) {
-            echo "Produto atualizado com sucesso!<br>";
-            echo "<a href='listar.php'>Voltar para a lista</a>";
+            echo "  <div class='container d-flex justify-content-center h2'>
+                        Produto atualizado com sucesso!
+                    </div>";
             exit;
         } else {
             echo "Erro: " . $conn->error;
@@ -57,6 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+
     <h2>Editar Produto</h2>
     <?php if(isset($produto)): ?>
     <form action="editar.php" method="POST">
@@ -76,7 +103,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     <?php endif; ?>
     <br>
-    <a href="listar.php">Voltar para a lista</a>
+    
+
+    </div>
+    
 </body>
 </html>
 
