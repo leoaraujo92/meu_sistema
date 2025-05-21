@@ -9,7 +9,17 @@
   
 </head>
 
-
+<div class="container-fluid">
+    <div class="row" style="margin-bottom: 1.6em;">
+        <header class="col-sm-7">
+            <a href="index.php"><img src="logo.png" alt="logo" style="width: 150px;"></a> 
+        </header>
+        <ul class="col-sm-5 list-unstyled d-flex justify-content-around align-items-center">
+            <a href="index.php"><li class="list-inline-item btn btn-outline-dark p-3">Cadastrar produto</li></a>
+            <a href="listar.php"><li class="list-inline-item btn btn-outline-dark p-3">Produtos cadastrados</li></a>
+        </ul>
+    </div>
+</div>
 
 <?php
 $servername = "localhost";
@@ -117,49 +127,43 @@ function formatarData($dataMySQL) {
 
 <body>
 
-    <div class="container">
-    <div class="row" style="margin-bottom: 1.6em;">
-        <header class="col-sm-7">
-            <a href="index.php"><img src="logo.png" alt="logo" style="width: 150px;"></a> 
-        </header>
-        <ul class="col-sm-5 list-unstyled d-flex justify-content-between align-items-center">
-            <a href="index.php"><li class="list-inline-item btn btn-outline-dark p-3">Cadastrar produto</li></a>
-            <a href="listar.php"><li class="list-inline-item btn btn-outline-dark p-3">Produtos cadastrados</li></a>
-        </ul>
-    </div>
-    <h2>Produtos Cadastrados</h2>
+    <div class="container-fluid">
     
-    <!-- Filtro de exibição com checkboxes -->
-    <div class="filtro-checkbox">
-        <form method="get" action="listar.php">
-            <input type="hidden" name="order_by" value="<?php echo htmlspecialchars($order_by); ?>">
-            <input type="hidden" name="order" value="<?php echo htmlspecialchars($order); ?>">
-            
-            <label>
-                <input type="checkbox" name="validade_30" <?php echo $filtros['validade_30'] ? 'checked' : ''; ?>>
-                Produtos com +30 dias de validade
-            </label>
-            
-            <label>
-                <input type="checkbox" name="validade_7" <?php echo $filtros['validade_7'] ? 'checked' : ''; ?>>
-                Produtos com 8-30 dias de validade
-            </label>
-            
-            <label>
-                <input type="checkbox" name="validade_0" <?php echo $filtros['validade_0'] ? 'checked' : ''; ?>>
-                Produtos com 0-7 dias de validade
-            </label>
-            
-            <label>
-                <input type="checkbox" name="fora_prazo" <?php echo $filtros['fora_prazo'] ? 'checked' : ''; ?>>
-                Produtos vencidos
-            </label>
-            
-            <button type="submit">Aplicar Filtros</button>
-        </form>
-    </div>
+        <div class="row">
+
+            <div class=" col-md-2">
+
+                <form  style="margin-top: 25px;" method="get" action="listar.php">
+                <h4 class="m-b-0 p-0">Filtro</h4>
+                    <input type="hidden" name="order_by" value="<?php echo htmlspecialchars($order_by); ?>">
+                    <input type="hidden" name="order" value="<?php echo htmlspecialchars($order); ?>">
+                    
+                    <label class="d-flex justify-content-between">
+                        <span><small>Produtos com +30 dias de validade</small></span> 
+                        <input style="width: 1.4em;" type="checkbox" name="validade_30" <?php echo $filtros['validade_30'] ? 'checked' : ''; ?>>
+                    </label>
+                    
+                    <label class="d-flex justify-content-between">
+                        <span><small>Produtos com 8-30 dias de validade</small></span>
+                        <input style="width: 1.4em;" type="checkbox" name="validade_7" <?php echo $filtros['validade_7'] ? 'checked' : ''; ?>>
+                    </label>
+                    
+                    <label  class="d-flex justify-content-between">
+                       <span><small>Produtos com 0-7 dias de validade</small></span> 
+                        <input style="width: 1.4em;" type="checkbox" name="validade_0" <?php echo $filtros['validade_0'] ? 'checked' : ''; ?>>
+                    </label>
+                    
+                    <label class="d-flex justify-content-between">
+                        <span><small>Produtos vencidos</small></span> 
+                        <input style="width: 1.4em;" type="checkbox" name="fora_prazo" <?php echo $filtros['fora_prazo'] ? 'checked' : ''; ?>>
+                    </label>
+                    
+                    <button class="btn btn-outline-sucess" type="submit">Aplicar Filtros</button>
+                </form>
+            </div>
     
-        <table>
+                    <!--TABELA-->
+            <table class="col-md-10 table">
             <tr>
                 <th><a href="listar.php?<?php 
                     echo "order_by=id&order=" . ($order_by == 'id' ? ($order == 'asc' ? 'desc' : 'asc') : 'asc');
@@ -273,8 +277,18 @@ function formatarData($dataMySQL) {
                 ?>
         </table>
         <br>
-        <a href="index.php">Cadastrar novo produto</a>
+        
     </div>
+
+
+
+        </div>
+    </div>
+    
+    
+    <!-- Filtro de exibição com checkboxes -->
+    
+        
 </body>
 </html>
 
